@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.menegerControllers.CheckEmpController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="593.0" prefWidth="499.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" prefHeight="50.0" prefWidth="499.0" text="Check employee Panel" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="50.0" top="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Lastname:">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="lastname" maxWidth="270.0">
+                     <VBox.margin>
+                        <Insets bottom="13.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Position">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="position" maxWidth="270.0">
+                     <VBox.margin>
+                        <Insets bottom="13.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="failLabel" prefHeight="15.0" text="label ktory bedzie wyswietlal blad jesli ktores pole nie zostanie wypelnione">
+                     <VBox.margin>
+                        <Insets top="3.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#checkEmployeeButton" text="Check">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</StackPane>
