@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.menegerControllers.ShowEmployeeController">
+   <children>
+      <HBox maxWidth="596.0" prefHeight="395.0" prefWidth="596.0">
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="395.0" prefWidth="128.0">
+               <children>
+                  <Label prefHeight="25.0" text="Lastname:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="Firstname">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="Position:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="Salary:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="Phone:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="e-mail:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="Address:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="IdNumber:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" text="Start date:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="395.0" prefWidth="455.0">
+               <children>
+                  <Label fx:id="lastnameL" prefHeight="25.0" prefWidth="350.0" text="IdNumber">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="firstnameL" prefHeight="25.0" prefWidth="350.0" text="Address:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="positionL" prefHeight="25.0" prefWidth="350.0" text="e-mail:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="salaryL" prefHeight="25.0" prefWidth="350.0" text="Phone:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="phoneL" prefHeight="25.0" prefWidth="350.0" text="Salary:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="emailL" prefHeight="25.0" prefWidth="350.0" text="Position:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="addressL" prefHeight="25.0" prefWidth="350.0" text="Firstname">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="idNumberL" prefHeight="25.0" prefWidth="350.0" text="Lastname:">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="2.0" top="7.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="startDateL" prefHeight="25.0" prefWidth="350.0" text="Startdate">
+                     <VBox.margin>
+                        <Insets bottom="8.0" left="2.0" right="2.0" top="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="okExitButton" mnemonicParsing="false" onAction="#okExitButton" text="Close">
+                     <VBox.margin>
+                        <Insets left="350.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets top="5.0" />
+   </padding>
+</StackPane>
