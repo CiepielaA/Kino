@@ -94,3 +94,12 @@ CREATE TABLE USER1 (
       PASSWORD_U VARCHAR2(20) NOT NULL,
       EMAIL VARCHAR2(255) NOT NULL
 );
+
+
+
+
+1. Wywalic Is_Loyal z Client
+2. Dodać CLIENT_ID do PURCHASE
+3. w procedurze uwzględnić dodawanie CLIENT_ID
+4. jeżeli CLIENT_ID jest puste to wstawić null w PURCHASE.CLIENT_ID
+5. Wstawianie klienta
