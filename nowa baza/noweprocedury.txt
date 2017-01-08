@@ -1,0 +1,280 @@
+create or replace procedure addCinemaBranch
+(BRANCH_NAMEA VARCHAR2, NUMBEROFHALLA NUMBER, NUMBEROFEMPLOYEEA NUMBER, ADDRESSA VARCHAR2)
+IS 
+BEGIN
+INSERT INTO CINEMABRANCH(BRANCH_NAME,NUMBEROFHALL,NUMBEROFEMPLOYEE,ADDRESS) VALUES (BRANCH_NAMEA,NUMBEROFHALLA,NUMBEROFEMPLOYEEA,ADDRESSA);
+END;
+
+create or replace procedure addClient
+(FIRST_NAMEA VARCHAR2,SECOND_NAMEA VARCHAR2, IS_LOYALA NUMBER)
+IS 
+max_id number(5);
+BEGIN
+SELECT max(CLIENT_ID) INTO max_id from CLIENT;
+
+IF max_id is NULL then max_id := 1; 
+      ELSE max_id := max_id + 1;
+END IF;
+
+INSERT INTO CLIENT(CLIENT_ID,FIRST_NAME,SECOND_NAME,IS_LOYAL) VALUES (max_id,FIRST_NAMEA,SECOND_NAMEA,IS_LOYALA);
+END;
+
+create or replace procedure addEmployee
+(PESELA NUMBER,BRANCH_NAMEA VARCHAR2,FIRST_NAMEA VARCHAR2, SECOND_NAMEA VARCHAR2, POSITION_EA VARCHAR2, EMAIL_ADDRESSA VARCHAR2, ADDRESSA VARCHAR2, SALARYA NUMBER, START_DATEA VARCHAR2)
+IS 
+BEGIN
+INSERT INTO EMPLOYEE(PESEL, BRANCH_NAME, FIRST_NAME, SECOND_NAME, POSITION_E, EMAIL_ADDRESS, ADDRESS, SALARY, START_DATE) VALUES (PESELA,BRANCH_NAMEA,FIRST_NAMEA,SECOND_NAMEA,POSITION_EA,EMAIL_ADDRESSA,ADDRESSA, SALARYA, START_DATEA);
+END;
+
+create or replace procedure addHALL
+(BRANCH_NAMEA VARCHAR2, ROW_HA NUMBER, NUMBER_HA NUMBER)
+IS 
+max_id number(5);
+BEGIN
+SELECT max(HALL_ID) INTO max_id from HALL;
+
+IF max_id is NULL then max_id := 1; 
+      ELSE max_id := max_id + 1;
+END IF;
+
+INSERT INTO HALL(HALL_ID,BRANCH_NAME,ROW_H,NUMBER_H) VALUES (max_id,BRANCH_NAMEA,ROW_HA,NUMBER_HA);
+END;
+
+create or replace procedure addMovie
+(TITLEA VARCHAR2, TIME_MA NUMBER,PROD_YEARA NUMBER,DIRECTORA VARCHAR2,TYPE_MA VARCHAR2, AGE_LIMITA NUMBER, PLAYA NUMBER)
+IS 
+BEGIN
+INSERT INTO MOVIE(TITLE, TIME_M,PROD_YEAR,DIRECTOR,TYPE_M,AGE_LIMIT,PLAY) VALUES (TITLEA,TIME_MA,PROD_YEARA,DIRECTORA,TYPE_MA,AGE_LIMITA,PLAYA);
+END;
+
+
+create or replace procedure addHALL
+(BRANCH_NAMEA VARCHAR2, ROW_HA NUMBER, NUMBER_HA NUMBER)
+IS 
+max_id number(5);
+BEGIN
+SELECT max(HALL_ID) INTO max_id from HALL;
+
+IF max_id is NULL then max_id := 1; 
+      ELSE max_id := max_id + 1;
+END IF;
+
+INSERT INTO HALL(HALL_ID,BRANCH_NAME,ROW_H,NUMBER_H) VALUES (max_id,BRANCH_NAMEA,ROW_HA,NUMBER_HA);
+END;
+
+create or replace procedure addMovie
+(TITLEA VARCHAR2, TIME_MA NUMBER,PROD_YEARA NUMBER,DIRECTORA VARCHAR2,TYPE_MA VARCHAR2, AGE_LIMITA NUMBER, PLAYA NUMBER)
+IS 
+BEGIN
+INSERT INTO MOVIE(TITLE, TIME_M,PROD_YEAR,DIRECTOR,TYPE_M,AGE_LIMIT,PLAY) VALUES (TITLEA,TIME_MA,PROD_YEARA,DIRECTORA,TYPE_MA,AGE_LIMITA,PLAYA);
+END;
+
+create or replace procedure addPlace
+(HALL_IDA NUMBER, ROW_PA NUMBER, NUMBER_PA NUMBER)
+IS 
+max_id number(5);
+BEGIN
+SELECT max(PLACE_ID) INTO max_id from PLEACE;
+
+IF max_id is NULL then max_id := 1; 
+      ELSE max_id := max_id + 1;
+END IF;
+INSERT INTO PLEACE(PLACE_ID,HALL_ID,ROW_P,NUMBER_P) VALUES (max_id,HALL_IDA,ROW_PA,NUMBER_PA);
+END;
+
+
+create or replace procedure addPrice
+(TYPE_PA VARCHAR2,COST_PA NUMBER)
+IS 
+BEGIN
+INSERT INTO PRICE(TYPE_P,COST_P) VALUES (TYPE_PA,COST_PA);
+END;
+
+
+create or replace procedure addPurchase(filmTitle varchar2, dateFilm varchar2, hoursA varchar2, rowNumber number, placeNumber number, is_paidA number)
+is 
+
+	seanceID number(5);
+	hallID number(2);
+	placeID number(3);
+	max_id number(5);
+
+begin
+
+	select SEANCE_ID, HALL_ID into seanceID, hallID from SEANCE where dateFilm = DATE_SEANCE and hoursA = HOURS and filmTitle = TITLE;
+	--select HALL_ID into hallID from SEANCE where seanceID = SEANCE_ID;
+	select PLACE_ID into placeID from PLEACE where hallID = HALL_ID and ROW_P = rowNumber and NUMBER_P = placeNumber;
+
+	SELECT max(PURCHASE_ID) INTO max_id from purchase;
+
+      IF max_id is NULL then max_id := 1; 
+      ELSE max_id := max_id + 1;
+      END IF;
+
+	insert into PURCHASE(PURCHASE_ID, SEANCE_ID, HALL_ID, PLACE_ID, IS_PAID) values(max_id, seanceID, hallID, placeID, is_paidA);
+  
+
+end;
+
+
+create or replace procedure addSeance
+(TITLEA VARCHAR2, HALL_IDA NUMBER,DATE_SEANCEA VARCHAR2, HOURSA VARCHAR2)
+IS 
+max_id number(5);
+BEGIN
+SELECT max(SEANCE_ID) INTO max_id from SEANCE;
+
+IF max_id is NULL then max_id := 1; 
+      ELSE max_id := max_id + 1;
+END IF;
+INSERT INTO SEANCE(SEANCE_ID,TITLE,HALL_ID,DATE_SEANCE,HOURS) VALUES (max_id,TITLEA,HALL_IDA,DATE_SEANCEA,HOURSA);
+END;
+
+
+create or replace procedure addTicket
+(PURCHASE_IDA NUMBER)
+IS 
+max_id number(5);
+BEGIN
+SELECT max(TICKET_ID) INTO max_id from TICKET;
+
+IF max_id is NULL then max_id := 1; 
+      ELSE max_id := max_id + 1;
+END IF;
+INSERT INTO TICKET(TICKET_ID,PURCHASE_ID) VALUES (max_id,PURCHASE_IDA);
+END;
+
+
+create or replace procedure deactivateMovie
+(TITLEA VARCHAR2)
+is
+begin
+UPDATE MOVIE SET PLAY = 0 where TITLE=TITLEA;
+END;
+
+
+
+create or replace procedure removeClient
+(CLIENT_IDA NUMBER)
+IS 
+BEGIN
+DELETE from CLIENT where CLIENT_IDA=CLIENT_IDA;
+END;
+
+
+create or replace procedure removeMovie
+(TITLEA VARCHAR2)
+IS 
+BEGIN
+DELETE from MOVIE where TITLE=TITLEA;
+END;
+
+
+create or replace procedure removePrice
+(TYPE_PA VARCHAR2)
+IS 
+BEGIN
+DELETE from PRICE where TYPE_P=TYPE_PA;
+END;
+
+
+create or replace procedure SHOWDATEMOVIE
+(TITLEA IN VARCHAR2)
+IS
+BEGIN
+   FOR t IN (SELECT DATE_SEANCE FROM SEANCE where TITLE=TITLEA)
+   LOOP
+      dbms_output.put_line(t.DATE_SEANCE);
+   END LOOP;
+END;
+
+
+create or replace procedure SHOWHOURSMOVIE
+(TITLEA IN VARCHAR2, DATA_SEANCEA IN VARCHAR2)
+IS
+BEGIN
+   FOR t IN (SELECT HOURS FROM SEANCE where TITLE=TITLEA AND DATE_SEANCE=DATA_SEANCEA)
+   LOOP
+      dbms_output.put_line(t.HOURS);
+   END LOOP;
+END;
+
+create or replace procedure SHOWMOVIE
+IS
+BEGIN
+   FOR t IN (SELECT title FROM movie where play=1)
+   LOOP
+      dbms_output.put_line(t.title);
+   END LOOP;
+END;
+
+
+create or replace procedure SHOWPRICE(TYPA IN VARCHAR2)
+IS
+COSTA NUMBER(2);
+BEGIN
+SELECT COST_P into COSTA from PRICE where TYPE_P=TYPA;
+DBMS_OUTPUT.PUT_LINE(COSTA);
+END;
+
+create or replace procedure showReservedPlaces 
+(titleA varchar2, dateA varchar2, hoursA varchar2)
+is
+	seanceID number(5);
+	rowPa number(5);
+	placePa number(5);
+begin
+
+	select seance_id into seanceID from seance where title = titleA and date_seance = dateA and hours = hoursA;
+
+	for t IN (select place_id from purchase join SEANCE on PURCHASE.SEANCE_ID = SEANCE.SEANCE_ID) LOOP
+		select row_p,  number_p into rowPa, placePa from PLEACE where PLACE_ID = t.place_id;
+		dbms_output.put_line(rowPA || '  ' || placePa);
+	end loop;
+
+end;
+
+
+create or replace procedure UPDATEPRICE
+(TYPA IN VARCHAR2, COSTA IN NUMBER)
+IS
+BEGIN
+UPDATE PRICE SET COST_P=COSTA where TYPE_P=TYPA;
+END;
+
+
+create or replace procedure WRITEEMAIL
+(FIRST_NAMEA IN VARCHAR2,SECOND_NAMEA IN VARCHAR2)
+IS
+EMAIL_ADDRESSA VARCHAR2(255);
+BEGIN
+SELECT EMAIL_ADDRESS into EMAIL_ADDRESSA from EMPLOYEE where FIRST_NAME=FIRST_NAMEA AND SECOND_NAME=SECOND_NAMEA;
+DBMS_OUTPUT.PUT_LINE(EMAIL_ADDRESSA);
+END;
+
+
+
+create or replace procedure WRITEEMPLOYEE
+(SECOND_NAMEA IN VARCHAR2)
+IS
+BRANCH_NAMEA VARCHAR2(20);
+FIRST_NAMEA VARCHAR2(20);
+POSITION_EA VARCHAR2(20);
+EMAIL_ADDRESSA VARCHAR2(255);
+ADDRESSA VARCHAR2(50);
+SALARYA NUMBER(5);
+START_DATEA VARCHAR2(8);
+BEGIN
+SELECT BRANCH_NAME, FIRST_NAME, POSITION_E, EMAIL_ADDRESS, ADDRESS, SALARY, START_DATE into BRANCH_NAMEA, FIRST_NAMEA, POSITION_EA, EMAIL_ADDRESSA, ADDRESSA, SALARYA, START_DATEA from EMPLOYEE where SECOND_NAME=SECOND_NAMEA;
+DBMS_OUTPUT.PUT_LINE(BRANCH_NAMEA||','||FIRST_NAMEA||','||SECOND_NAMEA||','||POSITION_EA||','||EMAIL_ADDRESSA||','||ADDRESSA||','||SALARYA||','||START_DATEA);
+END;
+
+
+create or replace procedure WRITEMOVIEINHALL
+(HALL_IDA IN VARCHAR2, DATEA IN VARCHAR2)
+IS
+BEGIN
+for t IN (SELECT TITLE from SEANCE where HALL_ID=HALL_IDA AND DATE_SEANCE=DATEA) LOOP
+		dbms_output.put_line(t.TITLE);
+	end loop;
+END;
