@@ -12,7 +12,8 @@ public class Client
 {
     public static void main(String[] args) throws IOException
     {
-        try (Socket s = new Socket("192.168.0.53", 8188))
+
+        try (Socket s = new Socket("192.168.0.42", 8188))
         {
             InputStream inStream = s.getInputStream();
             OutputStream outputStream = s.getOutputStream();
@@ -39,8 +40,6 @@ public class Client
                     flag = true;
                 }
             }
-
-
         }
     }
 }

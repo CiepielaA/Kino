@@ -12,13 +12,13 @@ public class ThreadedEchoServer {
         try{
             int i = 1;
             ServerSocket s = new ServerSocket(8188);
-
+            FunctionalClass functionalClass = new FunctionalClass();
 
             while(true){
                 Socket incoming = s.accept();
 //                System.out.println("name: " + incoming.getInetAddress());
                 System.out.println("Spawning " + i);
-                Runnable r = new ThreadedEchoHandler(incoming);
+                Runnable r = new ThreadedEchoHandler(incoming, functionalClass);
                 Thread t = new Thread(r);
                 t.start();
                 i++;
