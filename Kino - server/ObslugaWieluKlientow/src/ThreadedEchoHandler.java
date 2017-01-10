@@ -32,7 +32,7 @@ public class ThreadedEchoHandler implements Runnable{
                     String wynik = choseFunction(line, functions);
                     out.println(wynik);
 
-                    if(line.trim().equals("BYE")) done = true;
+                    if(line.equals("BYE")) done = true;
                 }
             }finally {
                 incoming.close();
