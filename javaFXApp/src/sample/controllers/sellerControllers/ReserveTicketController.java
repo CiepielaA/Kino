@@ -4,6 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -11,9 +14,15 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import sample.Main;
+import sample.controllers.mainControllers.LoadPane;
+import sample.exitPackage.ExitController;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -22,6 +31,7 @@ import static java.lang.String.valueOf;
 /**
  * Created by miczi on 16.11.16.
  */
+@SuppressWarnings("Duplicates")
 public class ReserveTicketController {
 
     @FXML
@@ -40,36 +50,49 @@ public class ReserveTicketController {
     private Label failLabel;
 
     public void initialize() {
+        String allFilms;
+        Main.bridge = "getFilms";
 
-//        tu bedziemy wysylac zapytanie o to jakie filmy sa obecnie dostepne
-//        i wsadzac je do movies
-        ObservableList<String> movies = FXCollections.observableArrayList(
-                " ",
-                "pitbul",
-                "zielonaMila",
-                "8mila");
+        while (true) {
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (!Main.solution.equals("")) {
+                allFilms = Main.solution;
+                break;
+            }
+        }
+        Main.solution = "";
+
+        ArrayList<String> movies = new ArrayList<>();
+        String[] temp = allFilms.split(",");
+        movies.addAll(Arrays.asList(temp));
         filmComboBox.getItems().addAll(movies);
     }
 
     @FXML
     private void reserveTicketButton(){
-        //dodajemy purchase z isPaid = 0,
-        //...
-        //jesli dodany email to wysylamy na niego maila
+
         if(dataValidation()){
             String title = valueOf(filmComboBox.getValue());
             String date = valueOf(choseDate.getValue());
             String hour = valueOf(choseHour.getValue());
             String email = emailTextField.getText() == "" ? "" : emailTextField.getText();
 
-            Main.bridge = "reserveTicket,"+
+            String subDate = date.substring(0,3)+date.substring(5,6)+date.substring(8,9);
+            String subHour = date.substring(0,1)+date.substring(3,4);
+
+            Main.bridge = "addPurchase,"+
                     title+","+
-                    date+","+
-                    hour+","+
-                    rowNumber.getText()+
-                    ","+seatNumebers.getText()+
-                    ","+0+  // isPaid
-                    ","+0;  // idClient
+                    subDate+","+
+                    subHour+","+
+                    rowNumber.getText()+","+
+                    seatNumebers.getText()+","+
+                    0+","+  // isPaid
+                    0;  // idClient
 
             while (true) {
                 try {
@@ -94,21 +117,40 @@ public class ReserveTicketController {
                 }
             }
             Main.solution = "";
+        }else {
+            failLabel.setText("You have to fill all fileds");
         }
-
-
-
-
-
-
-
-
-
     }
 
 
     @FXML
     private void showPlacesInHall(){
+        showWindowWithPlaces();
+        if(String.valueOf(filmComboBox.getValue()) != "" &&  String.valueOf(choseDate.getValue()) != "" && String.valueOf(choseHour.getValue()) != "") {
+            Main.bridge = "getDates," + String.valueOf(filmComboBox.getValue()) + "," + String.valueOf(choseDate.getValue()) + "," + String.valueOf(choseHour.getValue());
+            String reservedPlaces = "";
+
+            while (true) {
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                if (!Main.solution.equals("")) {
+                    if (Main.solution.equals("getPlaces")) {
+                        reservedPlaces = Main.solution;
+                    }
+                    break;
+                }
+            }
+            Main.solution = "";
+
+            String[] temp = reservedPlaces.split(",");
+
+        }else {
+            failLabel.setText("You have to choose title, date and hour");
+        }
 
     }
 
@@ -123,35 +165,58 @@ public class ReserveTicketController {
     }
 
     private void checkHours() {
-//        tu bedziemy sprawdzac w jakich godzinach grany jest dany film w danym dniu
+        if(String.valueOf(filmComboBox.getValue()) != "" && String.valueOf(choseDate.getValue()) != "") {
+            String date = String.valueOf(choseDate.getValue());
+            String dateTemp = date.substring(0,4)+date.substring(5,7)+date.substring(8,10);
+            Main.bridge = "getDates," + String.valueOf(filmComboBox.getValue()) + dateTemp;
+            String allHours = "";
+            while (true) {
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-        List<String> dates = new ArrayList<>();
+                if (!Main.solution.equals("")) {
+                    allHours = Main.solution;
+                    break;
+                }
+            }
+            Main.solution = "";
 
-
+            ArrayList<String> hours = new ArrayList<>();
+            String[] temp = allHours.split(",");
+            hours.addAll(Arrays.asList(temp));
+            choseDate.getItems().addAll(hours);
+        }
     }
 
     private void checkDates() {
-        List<String> dates = new ArrayList<>();
+        if(String.valueOf(filmComboBox.getValue()) != ""){
+            Main.bridge = "getDates," + String.valueOf(filmComboBox.getValue());
+            String allDates = "";
 
-//        tu bedziemy sprawdzac w jakich dniach grany jest dany film
+            while (true) {
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-        choseDate.getItems().clear();
-        if(valueOf(filmComboBox.getValue()).equals("pitbul")) {
-            dates.add("2017-09-23");
-            dates.add("2017-12-13");
-            dates.add("2017-04-23");
-        } else
-        if(valueOf(filmComboBox.getValue()).equals("zielonaMila")) {
-            dates.add("2017-01-21");
-            dates.add("2017-02-22");
-            dates.add("2017-03-23");
-        } else
-        if(valueOf(filmComboBox.getValue()).equals("8mila")) {
-            dates.add("2017-05-13");
-            dates.add("2017-06-14");
-            dates.add("2017-07-15");
+                if (!Main.solution.equals("")) {
+                    allDates = Main.solution;
+                    break;
+                }
+            }
+            Main.solution = "";
+            ArrayList<String> dates = new ArrayList<>();
+            String[] temp = allDates.split(",");
+            for(int i = 0; i < temp.length; i++){
+                temp[i] = temp[i].substring(0,4)+"-"+temp[i].substring(4,6)+"-"+temp[i].substring(6,8);
+            }
+            dates.addAll(Arrays.asList(temp));
+            choseDate.getItems().addAll(dates);
         }
-        choseDate.getItems().addAll(dates);
     }
 
     private boolean dataValidation(){
@@ -165,6 +230,22 @@ public class ReserveTicketController {
             failLabel.setText("You have to fill all fields.");
             return false;
         }
+    }
+
+    private void showWindowWithPlaces() {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/sellerFXMLs/PlacesInHallWindow.fxml"));
+        Pane pane = null;
+        Stage stage = new Stage();
+        try {
+            pane = loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.setTitle("Places");
+        stage.setScene(new Scene(pane));
+        stage.setResizable(false);
+        stage.show();
     }
 
 }
