@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class ReceiptController {
 
     @FXML
-    private Label billToPay;
+    private Label billToPay; // label to show how much to pay
     @FXML
     private Label changeLabel;
     @FXML
@@ -25,5 +25,10 @@ public class ReceiptController {
     public void acceptButton() {
         Stage stageExit = (Stage) acceptButtonId.getScene().getWindow();
         stageExit.close();
+    }
+
+    @FXML
+    private void calculateChange(){
+
     }
 }

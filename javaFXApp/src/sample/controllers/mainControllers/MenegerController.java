@@ -59,6 +59,8 @@ public class MenegerController {
             loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/menegerFXMLs/PricesModWindow.fxml"));
         if(window.equals("checkEmpButton"))
             loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/menegerFXMLs/CheckEmployeeWindow.fxml"));
+        if(window.equals("addFilmToDBButton"))
+            loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/menegerFXMLs/AddFilmToDatabase.fxml"));
 
         LoadPane loadPane = new LoadPane(loader, paneForWindows);
         loadPane.loadMyPane();
@@ -100,5 +102,10 @@ public class MenegerController {
     @FXML
     private void pricesModButton(){
         loadWindow("pricesModButton");
+    }
+
+    @FXML
+    private void addFilmToDBButton() {
+        loadWindow("addFilmToDBButton");
     }
 }

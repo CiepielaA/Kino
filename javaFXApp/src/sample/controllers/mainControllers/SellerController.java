@@ -53,8 +53,8 @@ public class SellerController {
             loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/sellerFXMLs/TicketFromReservationWindow.fxml"));
         if(window.equals("ticketExchangeButton"))
             loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/sellerFXMLs/TicketExchangeWindow.fxml"));
-        if(window.equals("loyalityCardButton"))
-            loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/sellerFXMLs/LoyalityCardWindow.fxml"));
+        if(window.equals("addClientButton"))
+            loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/sellerFXMLs/AddClientWindow.fxml"));
         if(window.equals("priceAndPromoButton"))
             loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/sellerFXMLs/PriceAndPromoWindow.fxml"));
         if(window.equals("reportireButton"))
@@ -97,7 +97,7 @@ public class SellerController {
 
     @FXML
     private void loyalityCardButton(){
-        loadWindow("loyalityCardButton");
+        loadWindow("addClientButton");
     }
 
 

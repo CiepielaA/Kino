@@ -24,6 +24,6 @@ public class TicketFromReserveController {
     private void acceptButton(){
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/sample/fxmlFiles/sellerFXMLs/Receipt.fxml"));
         LoadPane loadPane = new LoadPane(loader);
-        loadPane.loadMyWindowPane("Receipt");
+        loadPane.loadMyGridPane("Receipt");
     }
 }

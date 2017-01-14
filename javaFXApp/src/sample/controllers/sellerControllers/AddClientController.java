@@ -7,19 +7,17 @@ import javafx.scene.control.TextField;
 /**
  * Created by miczi on 17.11.16.
  */
-public class LoyalityCardController {
+public class AddClientController {
 
     @FXML
     private TextField firstName;
     @FXML
     private TextField lastname;
     @FXML
-    private TextField emailAddress;
-    @FXML
     private Label failLabel;
 
     @FXML
-    private void addLoyalityCard(){
+    private void addClientCard(){
 
     }
 }

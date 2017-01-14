@@ -85,6 +85,7 @@ public class LogController {
 
     @FXML
     private void exitButton() {
+        System.exit(0); // to trzeba usunąć zeby okienko zamykania sie pojawialo
         ExitClass exit = new ExitClass();
         exit.exit();
     }
