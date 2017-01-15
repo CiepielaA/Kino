@@ -23,14 +23,20 @@ public class ReceiptController {
     private Button acceptButtonId;
 
     private SellTicketController sellTicketController;
+    private TicketExchangeController ticketExchangeController;
 
     private int[] tabWithPrice = new int[3];
     private String priceType = "";
+
+
     @FXML
     public void acceptButton() {
         Stage stageExit = (Stage) acceptButtonId.getScene().getWindow();
         stageExit.close();
     }
+
+
+
     @FXML
     private void mouseEnter(MouseEvent e){
         if(billToPay.getText().equals("")) {
@@ -59,11 +65,17 @@ public class ReceiptController {
     }
 
     public void setSellTicketController(SellTicketController sellTicketController){
-        System.out.println("ustawilem sell...");
         this.sellTicketController = sellTicketController;
     }
+
+    public void setTicketExchangeController(TicketExchangeController ticketExchangeController) {
+        this.ticketExchangeController = ticketExchangeController;
+    }
+
 
     public void setPriceType(String priceType){
         this.priceType = priceType;
     }
+
+
 }

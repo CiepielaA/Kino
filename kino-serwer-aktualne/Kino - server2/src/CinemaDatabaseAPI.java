@@ -272,4 +272,44 @@ public class CinemaDatabaseAPI {
             e.printStackTrace();
         }
     }
+
+    public void removeTicket(String idT){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM TICKET WHERE TICKET_ID = " + idT);
+            preparedStatement.executeQuery();
+
+        }catch (SQLException e){
+            System.out.println("removeTicket Error!");
+            e.printStackTrace();
+        }
+    }
+
+    public void removePurchase(String idP){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM PURCHASE WHERE PURCHASE_ID = " + idP);
+            preparedStatement.executeQuery();
+
+        }catch (SQLException e){
+            System.out.println("removePurchase Error!");
+            e.printStackTrace();
+        }
+    }
+
+    public String takePurchaseIdFromTicketId(String idT){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT PURCHASE_ID FROM TICKET WHERE TICKET_ID = " + idT);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            String temp =  String.valueOf(resultSet.getInt(1));
+
+            return temp;
+        }catch (SQLException e){
+            System.out.println("takePurchaseIdFromTicketId Error!");
+            e.printStackTrace();
+        }
+        return "blad";
+    }
+
+
 }

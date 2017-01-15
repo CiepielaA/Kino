@@ -22,6 +22,49 @@ public class FunctionalClass {
 
 //********************************************************************************************
 
+    public synchronized String deleteTicket(String argments){
+
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+        String ticketId = "";
+        argments = argments.substring(1, argments.length());
+        String[] temp = argments.split(";");
+
+        ticketId = temp[0];
+//        String argumentsForAddPurchase = temp[1];
+
+
+        String ticketIdTemp = ticketId;
+        String purchaseId = cinemaDatabaseAPI.takePurchaseIdFromTicketId(ticketIdTemp);
+        //usun ticket
+        cinemaDatabaseAPI.removeTicket(ticketIdTemp);
+        //usun purchase
+        cinemaDatabaseAPI.removePurchase(purchaseId);
+//
+//
+//        access = true;
+//        notifyAll();
+//        addPurchase(argumentsForAddPurchase);
+//        access = false;
+
+
+        String ticketIdentifier = "blad";
+        ticketIdentifier = cinemaDatabaseAPI.showTicketNumber();
+
+        access = true;
+        notifyAll();
+        return ticketIdentifier;
+
+    }
+
+//********************************************************************************************
+
     public synchronized String ticketFromRes(String arg){
 
 

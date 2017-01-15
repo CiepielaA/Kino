@@ -54,7 +54,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox fx:id="choseDate" prefHeight="25.0" prefWidth="270.0">
+                  <ComboBox fx:id="choseDate" onMouseClicked="#isDatesCBClicked" prefHeight="25.0" prefWidth="270.0">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
@@ -64,9 +64,15 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox fx:id="choseHour" prefHeight="25.0" prefWidth="270.0">
+                  <ComboBox fx:id="choseHour" onMouseClicked="#isHoursCBClicked" prefHeight="25.0" prefWidth="270.0">
                      <VBox.margin>
                         <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <Label text="Type of ticket:" />
+                  <ComboBox fx:id="typeOfTicketCB" minWidth="270.0" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="5.0" />
                      </VBox.margin>
                   </ComboBox>
                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="499.0">
@@ -97,10 +103,11 @@
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </HBox>
+                  <Label fx:id="failLabel" />
                   <Label fx:id="failLabel" prefHeight="15.0" />
                   <Button mnemonicParsing="false" onAction="#sellTicketButton" text="Sell">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="15.0" />
                      </VBox.margin>
                   </Button>
                </children>

@@ -19,6 +19,7 @@ public class PlacesInHallController {
    // public String[] tempPlaces;
     private ReserveTicketController reserveTicketController;
     private SellTicketController sellTicketController;
+    private TicketExchangeController ticketExchangeController;
 
     private void initialize(){
 
@@ -36,18 +37,24 @@ public class PlacesInHallController {
     public void setSellTicketController(SellTicketController sellTicketController) {
         this.sellTicketController = sellTicketController;
     }
+    public void setTicketExchangeController(TicketExchangeController ticketExchangeController) {
+        this.ticketExchangeController = ticketExchangeController;
+    }
 
 
     @FXML
     private void mouseOn(MouseEvent e){
         String[] temporaryPlaces = null;
 
-        if(reserveTicketController == null){
+        if(!(reserveTicketController == null)){
             placesLabel.setText(sellTicketController.tempPlaces[0]);
             temporaryPlaces = sellTicketController.tempPlaces;
-        } else if(sellTicketController == null){
+        } else if(!(sellTicketController == null)){
             placesLabel.setText(reserveTicketController.tempPlaces[0]);
             temporaryPlaces = reserveTicketController.tempPlaces;
+        } else if(!(ticketExchangeController == null)){
+            placesLabel.setText(ticketExchangeController.tempPlaces[0]);
+            temporaryPlaces = ticketExchangeController.tempPlaces;
         }
 
 
