@@ -2,6 +2,10 @@ import oracle.jdbc.OracleTypes;
 import oracle.jdbc.proxy.annotation.Pre;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Adrian on 14.01.2017.
@@ -312,4 +316,61 @@ public class CinemaDatabaseAPI {
     }
 
 
+
+    public String showRepertoire(String date){
+        try{
+            String sqll = "select m.title, s.hours from seance s join movie m on s.title = m.title where date_seance =" + date + "and m.play = 1";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(sqll);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Map<String, String> repertouireMap = new HashMap<>();
+            String tempHours = "";
+            String repertoire = "";
+
+            while(resultSet.next()){
+                repertoire += resultSet.getString("title") + "," + resultSet.getString("hours") + ";";
+            }
+
+            String [] repertoireTab = repertoire.split(";");
+            String [] temp;
+
+            for(int i = 0; i < repertoireTab.length; i++ ){
+                temp = repertoireTab[i].split(",");
+                if(repertouireMap.containsKey(temp[0])){
+                    tempHours += repertouireMap.get(temp[0]) + ", " +  temp[1].substring(0,2)+":"+temp[1].substring(2,4);
+                    repertouireMap.put(temp[0], tempHours);
+                }
+                else{
+                    repertouireMap.put(temp[0], temp[1].substring(0,2)+":"+temp[1].substring(2,4));
+                    tempHours = "";
+                }
+            }
+            repertoire = "";
+            for(String title : repertouireMap.keySet()){
+                repertoire += title + ":  " + repertouireMap.get(title) + ";";
+            }
+
+            return repertoire;
+        }catch (SQLException e){
+            System.out.println("takePurchaseIdFromTicketId Error!");
+            e.printStackTrace();
+        }
+        return "blad";
+    }
+
+    public String checkISPAID(String idP){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT PURCHASE.IS_PAID FROM PURCHASE WHERE PURCHASE.PURCHASE_ID = " + idP);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            String temp =  String.valueOf(resultSet.getInt(1));
+
+            return temp;
+        }catch (SQLException e){
+            System.out.println("checkISPAID Error!");
+            e.printStackTrace();
+        }
+        return "blad";
+    }
 }

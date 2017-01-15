@@ -47,11 +47,15 @@ public class PlacesInHallController {
         String[] temporaryPlaces = null;
 
         if(!(reserveTicketController == null)){
-            placesLabel.setText(sellTicketController.tempPlaces[0]);
-            temporaryPlaces = sellTicketController.tempPlaces;
-        } else if(!(sellTicketController == null)){
             placesLabel.setText(reserveTicketController.tempPlaces[0]);
             temporaryPlaces = reserveTicketController.tempPlaces;
+
+
+        } else if(!(sellTicketController == null)){
+            placesLabel.setText(sellTicketController.tempPlaces[0]);
+            temporaryPlaces = sellTicketController.tempPlaces;
+
+
         } else if(!(ticketExchangeController == null)){
             placesLabel.setText(ticketExchangeController.tempPlaces[0]);
             temporaryPlaces = ticketExchangeController.tempPlaces;

@@ -20,29 +20,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ThreadedEchoHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ThreadedEchoHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ThreadedEchoHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FunctionalClass.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FunctionalClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FunctionalClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1651">
-              <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+            <state relative-caret-position="160">
+              <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
               <folding>
                 <element signature="e#43#74#0" expanded="true" />
-                <marker date="1484490996939" expanded="false" signature="185:196" ph=" { " />
-                <marker date="1484490996939" expanded="false" signature="240:246" ph=" }" />
-                <marker date="1484490996939" expanded="false" signature="288:298" ph=" { " />
-                <marker date="1484490996939" expanded="false" signature="341:347" ph=" }" />
-                <marker date="1484490996939" expanded="false" signature="390:400" ph=" { " />
-                <marker date="1484490996939" expanded="false" signature="444:450" ph=" }" />
+                <marker date="1484504708678" expanded="false" signature="185:196" ph=" { " />
+                <marker date="1484504708678" expanded="false" signature="240:246" ph=" }" />
+                <marker date="1484504708678" expanded="false" signature="288:298" ph=" { " />
+                <marker date="1484504708678" expanded="false" signature="341:347" ph=" }" />
+                <marker date="1484504708678" expanded="false" signature="390:400" ph=" { " />
+                <marker date="1484504708678" expanded="false" signature="444:450" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -51,21 +51,23 @@
       <file leaf-file-name="CinemaDatabaseAPI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CinemaDatabaseAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-850">
-              <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+            <state relative-caret-position="409">
+              <caret line="362" column="141" selection-start-line="362" selection-start-column="141" selection-end-line="362" selection-end-column="141" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3528#3559#0" expanded="true" />
-                <marker date="1484491369900" expanded="true" signature="7283:7297" ph="SELECT * fro... price" />
-                <marker date="1484491369900" expanded="true" signature="7283:7302" ph="SELECT * fro... PRICE" />
-                <marker date="1484491369900" expanded="true" signature="7857:7958" ph="SELECT purch... purchase" />
-                <marker date="1484491369900" expanded="true" signature="7920:7957" ph="select max(p... purchase" />
-                <marker date="1484491369900" expanded="true" signature="8500:8589" ph="SELECT ticke... ticket" />
-                <marker date="1484491369900" expanded="true" signature="8555:8588" ph="select max(t... ticket" />
-                <marker date="1484491369900" expanded="true" signature="9517:9553" ph="DELETE FROM " />
-                <marker date="1484491369900" expanded="true" signature="9517:9554" ph="DELETE FROM " />
-                <marker date="1484491369900" expanded="true" signature="9879:9920" ph="DELETE FROM " />
-                <marker date="1484491369900" expanded="true" signature="10261:10310" ph="SELECT PURCH... TICKET" />
+                <element signature="e#3627#3658#0" expanded="true" />
+                <marker date="1484504591377" expanded="true" signature="7382:7396" ph="SELECT * fro... price" />
+                <marker date="1484504591377" expanded="true" signature="7382:7401" ph="SELECT * fro... PRICE" />
+                <marker date="1484504591377" expanded="true" signature="7956:8057" ph="SELECT purch... purchase" />
+                <marker date="1484504591377" expanded="true" signature="8019:8056" ph="select max(p... purchase" />
+                <marker date="1484504591377" expanded="true" signature="8599:8688" ph="SELECT ticke... ticket" />
+                <marker date="1484504591377" expanded="true" signature="8654:8687" ph="select max(t... ticket" />
+                <marker date="1484504591377" expanded="true" signature="9616:9652" ph="DELETE FROM " />
+                <marker date="1484504591377" expanded="true" signature="9616:9653" ph="DELETE FROM " />
+                <marker date="1484504591377" expanded="true" signature="9978:10019" ph="DELETE FROM " />
+                <marker date="1484504591377" expanded="true" signature="10360:10409" ph="SELECT PURCH... TICKET" />
+                <marker date="1484504591377" expanded="true" signature="10872:10989" ph="select m.tit... seance" />
+                <marker date="1484504591377" expanded="true" signature="12597:12664" ph="SELECT PURCH... PURCHASE" />
               </folding>
             </state>
           </provider>
@@ -103,8 +105,8 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/ThreadedEchoServer.java" />
         <option value="$PROJECT_DIR$/src/ThreadedEchoHandler.java" />
-        <option value="$PROJECT_DIR$/src/FunctionalClass.java" />
         <option value="$PROJECT_DIR$/src/CinemaDatabaseAPI.java" />
+        <option value="$PROJECT_DIR$/src/FunctionalClass.java" />
       </list>
     </option>
   </component>
@@ -718,12 +720,12 @@
       <workItem from="1484390715257" duration="38198000" />
       <workItem from="1484436945222" duration="432000" />
       <workItem from="1484437429647" duration="31000" />
-      <workItem from="1484443724914" duration="25030000" />
+      <workItem from="1484443724914" duration="35029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65399000" />
+    <option name="totallyTimeSpent" value="75398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
@@ -736,7 +738,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5078329" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43342036" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -746,7 +748,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27415144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43603134" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -776,7 +778,27 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="31" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CinemaDatabaseAPI.java</url>
+          <line>352</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CinemaDatabaseAPI.java</url>
+          <line>348</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CinemaDatabaseAPI.java</url>
+          <line>362</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -791,12 +813,12 @@
           <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="e#43#74#0" expanded="true" />
-            <marker date="1484490996939" expanded="false" signature="185:196" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="240:246" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="288:298" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="341:347" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="390:400" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="444:450" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="185:196" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="240:246" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="288:298" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="341:347" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="390:400" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="444:450" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -831,17 +853,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3528#3559#0" expanded="true" />
-            <marker date="1484491369900" expanded="true" signature="7283:7297" ph="SELECT * fro... price" />
-            <marker date="1484491369900" expanded="true" signature="7283:7302" ph="SELECT * fro... PRICE" />
-            <marker date="1484491369900" expanded="true" signature="7857:7958" ph="SELECT purch... purchase" />
-            <marker date="1484491369900" expanded="true" signature="7920:7957" ph="select max(p... purchase" />
-            <marker date="1484491369900" expanded="true" signature="8500:8589" ph="SELECT ticke... ticket" />
-            <marker date="1484491369900" expanded="true" signature="8555:8588" ph="select max(t... ticket" />
-            <marker date="1484491369900" expanded="true" signature="9517:9553" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9517:9554" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9879:9920" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="10261:10310" ph="SELECT PURCH... TICKET" />
+            <element signature="e#3627#3658#0" expanded="true" />
+            <marker date="1484504591377" expanded="true" signature="7382:7396" ph="SELECT * fro... price" />
+            <marker date="1484504591377" expanded="true" signature="7382:7401" ph="SELECT * fro... PRICE" />
+            <marker date="1484504591377" expanded="true" signature="7956:8057" ph="SELECT purch... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8019:8056" ph="select max(p... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8599:8688" ph="SELECT ticke... ticket" />
+            <marker date="1484504591377" expanded="true" signature="8654:8687" ph="select max(t... ticket" />
+            <marker date="1484504591377" expanded="true" signature="9616:9652" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9616:9653" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9978:10019" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="10360:10409" ph="SELECT PURCH... TICKET" />
+            <marker date="1484504591377" expanded="true" signature="10872:10989" ph="select m.tit... seance" />
+            <marker date="1484504591377" expanded="true" signature="12597:12664" ph="SELECT PURCH... PURCHASE" />
           </folding>
         </state>
       </provider>
@@ -860,12 +884,12 @@
           <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="e#43#74#0" expanded="true" />
-            <marker date="1484490996939" expanded="false" signature="185:196" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="240:246" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="288:298" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="341:347" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="390:400" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="444:450" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="185:196" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="240:246" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="288:298" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="341:347" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="390:400" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="444:450" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -900,17 +924,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3528#3559#0" expanded="true" />
-            <marker date="1484491369900" expanded="true" signature="7283:7297" ph="SELECT * fro... price" />
-            <marker date="1484491369900" expanded="true" signature="7283:7302" ph="SELECT * fro... PRICE" />
-            <marker date="1484491369900" expanded="true" signature="7857:7958" ph="SELECT purch... purchase" />
-            <marker date="1484491369900" expanded="true" signature="7920:7957" ph="select max(p... purchase" />
-            <marker date="1484491369900" expanded="true" signature="8500:8589" ph="SELECT ticke... ticket" />
-            <marker date="1484491369900" expanded="true" signature="8555:8588" ph="select max(t... ticket" />
-            <marker date="1484491369900" expanded="true" signature="9517:9553" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9517:9554" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9879:9920" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="10261:10310" ph="SELECT PURCH... TICKET" />
+            <element signature="e#3627#3658#0" expanded="true" />
+            <marker date="1484504591377" expanded="true" signature="7382:7396" ph="SELECT * fro... price" />
+            <marker date="1484504591377" expanded="true" signature="7382:7401" ph="SELECT * fro... PRICE" />
+            <marker date="1484504591377" expanded="true" signature="7956:8057" ph="SELECT purch... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8019:8056" ph="select max(p... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8599:8688" ph="SELECT ticke... ticket" />
+            <marker date="1484504591377" expanded="true" signature="8654:8687" ph="select max(t... ticket" />
+            <marker date="1484504591377" expanded="true" signature="9616:9652" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9616:9653" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9978:10019" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="10360:10409" ph="SELECT PURCH... TICKET" />
+            <marker date="1484504591377" expanded="true" signature="10872:10989" ph="select m.tit... seance" />
+            <marker date="1484504591377" expanded="true" signature="12597:12664" ph="SELECT PURCH... PURCHASE" />
           </folding>
         </state>
       </provider>
@@ -931,12 +957,12 @@
           <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="e#43#74#0" expanded="true" />
-            <marker date="1484490996939" expanded="false" signature="185:196" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="240:246" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="288:298" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="341:347" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="390:400" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="444:450" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="185:196" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="240:246" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="288:298" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="341:347" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="390:400" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="444:450" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -971,17 +997,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3528#3559#0" expanded="true" />
-            <marker date="1484491369900" expanded="true" signature="7283:7297" ph="SELECT * fro... price" />
-            <marker date="1484491369900" expanded="true" signature="7283:7302" ph="SELECT * fro... PRICE" />
-            <marker date="1484491369900" expanded="true" signature="7857:7958" ph="SELECT purch... purchase" />
-            <marker date="1484491369900" expanded="true" signature="7920:7957" ph="select max(p... purchase" />
-            <marker date="1484491369900" expanded="true" signature="8500:8589" ph="SELECT ticke... ticket" />
-            <marker date="1484491369900" expanded="true" signature="8555:8588" ph="select max(t... ticket" />
-            <marker date="1484491369900" expanded="true" signature="9517:9553" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9517:9554" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9879:9920" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="10261:10310" ph="SELECT PURCH... TICKET" />
+            <element signature="e#3627#3658#0" expanded="true" />
+            <marker date="1484504591377" expanded="true" signature="7382:7396" ph="SELECT * fro... price" />
+            <marker date="1484504591377" expanded="true" signature="7382:7401" ph="SELECT * fro... PRICE" />
+            <marker date="1484504591377" expanded="true" signature="7956:8057" ph="SELECT purch... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8019:8056" ph="select max(p... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8599:8688" ph="SELECT ticke... ticket" />
+            <marker date="1484504591377" expanded="true" signature="8654:8687" ph="select max(t... ticket" />
+            <marker date="1484504591377" expanded="true" signature="9616:9652" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9616:9653" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9978:10019" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="10360:10409" ph="SELECT PURCH... TICKET" />
+            <marker date="1484504591377" expanded="true" signature="10872:10989" ph="select m.tit... seance" />
+            <marker date="1484504591377" expanded="true" signature="12597:12664" ph="SELECT PURCH... PURCHASE" />
           </folding>
         </state>
       </provider>
@@ -1002,12 +1030,12 @@
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
             <element signature="e#43#74#0" expanded="true" />
-            <marker date="1484490996939" expanded="false" signature="185:196" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="240:246" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="288:298" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="341:347" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="390:400" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="444:450" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="185:196" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="240:246" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="288:298" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="341:347" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="390:400" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="444:450" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1026,17 +1054,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3528#3559#0" expanded="true" />
-            <marker date="1484491369900" expanded="true" signature="7283:7297" ph="SELECT * fro... price" />
-            <marker date="1484491369900" expanded="true" signature="7283:7302" ph="SELECT * fro... PRICE" />
-            <marker date="1484491369900" expanded="true" signature="7857:7958" ph="SELECT purch... purchase" />
-            <marker date="1484491369900" expanded="true" signature="7920:7957" ph="select max(p... purchase" />
-            <marker date="1484491369900" expanded="true" signature="8500:8589" ph="SELECT ticke... ticket" />
-            <marker date="1484491369900" expanded="true" signature="8555:8588" ph="select max(t... ticket" />
-            <marker date="1484491369900" expanded="true" signature="9517:9553" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9517:9554" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9879:9920" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="10261:10310" ph="SELECT PURCH... TICKET" />
+            <element signature="e#3627#3658#0" expanded="true" />
+            <marker date="1484504591377" expanded="true" signature="7382:7396" ph="SELECT * fro... price" />
+            <marker date="1484504591377" expanded="true" signature="7382:7401" ph="SELECT * fro... PRICE" />
+            <marker date="1484504591377" expanded="true" signature="7956:8057" ph="SELECT purch... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8019:8056" ph="select max(p... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8599:8688" ph="SELECT ticke... ticket" />
+            <marker date="1484504591377" expanded="true" signature="8654:8687" ph="select max(t... ticket" />
+            <marker date="1484504591377" expanded="true" signature="9616:9652" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9616:9653" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9978:10019" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="10360:10409" ph="SELECT PURCH... TICKET" />
+            <marker date="1484504591377" expanded="true" signature="10872:10989" ph="select m.tit... seance" />
+            <marker date="1484504591377" expanded="true" signature="12597:12664" ph="SELECT PURCH... PURCHASE" />
           </folding>
         </state>
       </provider>
@@ -1085,48 +1115,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FunctionalClass.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1651">
-          <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
-          <folding>
-            <element signature="e#43#74#0" expanded="true" />
-            <marker date="1484490996939" expanded="false" signature="185:196" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="240:246" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="288:298" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="341:347" ph=" }" />
-            <marker date="1484490996939" expanded="false" signature="390:400" ph=" { " />
-            <marker date="1484490996939" expanded="false" signature="444:450" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CinemaDatabaseAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
-          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3528#3559#0" expanded="true" />
-            <marker date="1484491369900" expanded="true" signature="7283:7297" ph="SELECT * fro... price" />
-            <marker date="1484491369900" expanded="true" signature="7283:7302" ph="SELECT * fro... PRICE" />
-            <marker date="1484491369900" expanded="true" signature="7857:7958" ph="SELECT purch... purchase" />
-            <marker date="1484491369900" expanded="true" signature="7920:7957" ph="select max(p... purchase" />
-            <marker date="1484491369900" expanded="true" signature="8500:8589" ph="SELECT ticke... ticket" />
-            <marker date="1484491369900" expanded="true" signature="8555:8588" ph="select max(t... ticket" />
-            <marker date="1484491369900" expanded="true" signature="9517:9553" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9517:9554" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="9879:9920" ph="DELETE FROM " />
-            <marker date="1484491369900" expanded="true" signature="10261:10310" ph="SELECT PURCH... TICKET" />
-          </folding>
+        <state relative-caret-position="147">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ThreadedEchoHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CinemaDatabaseAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="362" column="141" selection-start-line="362" selection-start-column="141" selection-end-line="362" selection-end-column="141" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3627#3658#0" expanded="true" />
+            <marker date="1484504591377" expanded="true" signature="7382:7396" ph="SELECT * fro... price" />
+            <marker date="1484504591377" expanded="true" signature="7382:7401" ph="SELECT * fro... PRICE" />
+            <marker date="1484504591377" expanded="true" signature="7956:8057" ph="SELECT purch... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8019:8056" ph="select max(p... purchase" />
+            <marker date="1484504591377" expanded="true" signature="8599:8688" ph="SELECT ticke... ticket" />
+            <marker date="1484504591377" expanded="true" signature="8654:8687" ph="select max(t... ticket" />
+            <marker date="1484504591377" expanded="true" signature="9616:9652" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9616:9653" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="9978:10019" ph="DELETE FROM " />
+            <marker date="1484504591377" expanded="true" signature="10360:10409" ph="SELECT PURCH... TICKET" />
+            <marker date="1484504591377" expanded="true" signature="10872:10989" ph="select m.tit... seance" />
+            <marker date="1484504591377" expanded="true" signature="12597:12664" ph="SELECT PURCH... PURCHASE" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FunctionalClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+          <folding>
+            <element signature="e#43#74#0" expanded="true" />
+            <marker date="1484504708678" expanded="false" signature="185:196" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="240:246" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="288:298" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="341:347" ph=" }" />
+            <marker date="1484504708678" expanded="false" signature="390:400" ph=" { " />
+            <marker date="1484504708678" expanded="false" signature="444:450" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>

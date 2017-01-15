@@ -19,6 +19,49 @@ public class FunctionalClass {
     }
 
     public boolean access = true;
+//********************************************************************************************
+    public synchronized String deletePurchase(String purId){
+
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+        String result;
+        purId = purId.substring(1, purId.length());
+        if(cinemaDatabaseAPI.checkISPAID(purId).equals("0")){
+           result = "Reservation cancelled";
+           cinemaDatabaseAPI.removePurchase(purId);
+        } else {
+            result = "Purchase is paid. Cancel is not available";
+        }
+
+        access = true;
+        notifyAll();
+        return result;
+    }
+
+
+//********************************************************************************************
+    public synchronized  String showRepertoire(String date){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+        date = date.substring(1, date.length());
+        String result = cinemaDatabaseAPI.showRepertoire(date);
+
+        access = true;
+        notifyAll();
+        return result;
+    }
 
 //********************************************************************************************
 
@@ -327,7 +370,6 @@ public class FunctionalClass {
         }
     }
 
-
     public synchronized String getFilms() {
 
         while(!access)
@@ -390,8 +432,6 @@ public class FunctionalClass {
         notifyAll();
         return result;
     }
-
-
 
     public synchronized String priceMod(String command) {
         String temp = "";
