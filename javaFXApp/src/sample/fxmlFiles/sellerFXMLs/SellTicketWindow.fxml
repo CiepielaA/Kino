@@ -58,6 +58,12 @@
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </ComboBox>
+                  <Label text="Type of ticket:" />
+                  <ComboBox fx:id="typeOfTicketCB" minWidth="270.0" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="5.0" />
+                     </VBox.margin>
+                  </ComboBox>
                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="499.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#showPlacesInHall" text="Show places in hall">
@@ -86,7 +92,7 @@
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </HBox>
-                  <Label fx:id="failLabel" prefHeight="15.0" text="label ktory bedzie wyswietlal blad wyboru miejsca jesli sa zajete" />
+                  <Label fx:id="failLabel" prefHeight="15.0" />
                   <Button mnemonicParsing="false" onAction="#sellTicketButton" text="Sell">
                      <VBox.margin>
                         <Insets top="30.0" />

@@ -25,7 +25,7 @@ public class ServerConnection implements Runnable{
     public static void workWithServer() throws IOException
     {
 
-        try (Socket s = new Socket("192.168.0.104", 8188))
+        try (Socket s = new Socket("127.0.0.1", 8188))
         {
             InputStream inStream = s.getInputStream();
             OutputStream outputStream = s.getOutputStream();

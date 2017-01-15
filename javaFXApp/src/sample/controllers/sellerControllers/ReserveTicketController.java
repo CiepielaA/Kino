@@ -41,6 +41,8 @@ public class ReserveTicketController {
     @FXML
     private ComboBox choseHour;
     @FXML
+    private ComboBox TypeOfTicketCB;
+    @FXML
     private TextField rowNumber;
     @FXML
     private TextField seatNumebers;
@@ -50,6 +52,9 @@ public class ReserveTicketController {
     private Label failLabel;
 
     public void initialize() {
+        TypeOfTicketCB.getItems().addAll("normalny","ulgowy","rodzinny");
+
+
         String allFilms;
         Main.bridge = "getFilms";
 
@@ -80,19 +85,22 @@ public class ReserveTicketController {
             String title = valueOf(filmComboBox.getValue());
             String date = valueOf(choseDate.getValue());
             String hour = valueOf(choseHour.getValue());
+            String ticketType =  valueOf(TypeOfTicketCB.getValue());
             String email = emailTextField.getText() == "" ? "" : emailTextField.getText();
 
-            String subDate = date.substring(0,3)+date.substring(5,6)+date.substring(8,9);
-            String subHour = date.substring(0,1)+date.substring(3,4);
+            String subDate = date.substring(0,4)+date.substring(5,7)+date.substring(8,10);
+            String subHour = hour.substring(0,2)+hour.substring(3,5);
 
             Main.bridge = "addPurchase,"+
                     title+","+
                     subDate+","+
                     subHour+","+
+                    ticketType+","+
                     rowNumber.getText()+","+
                     seatNumebers.getText()+","+
                     0+","+  // isPaid
-                    0;  // idClient
+                    0+","+  //isClient
+                    0;      //buy ticket?
 
             while (true) {
                 try {
@@ -102,17 +110,18 @@ public class ReserveTicketController {
                 }
 
                 if (!Main.solution.equals("")) {
-                    if (Main.solution.equals("reserveAdded")) {
+
+                        System.out.println("reserveAdded");
                         filmComboBox.getItems().clear();
                         choseDate.getItems().clear();
                         choseHour.getItems().clear();
+                        TypeOfTicketCB.getItems().clear();
                         emailTextField.clear();
                         seatNumebers.clear();
                         rowNumber.clear();
 
-                        failLabel.setText("Added...");
-                    } else if (Main.solution.equals("reservation doesn't added"))
-                        System.out.println("doctor doesn't removed---------");
+                        failLabel.setText("ReservationId: " + Main.solution);
+
                     break;
                 }
             }
@@ -122,12 +131,19 @@ public class ReserveTicketController {
         }
     }
 
+    public String[] tempPlaces;
 
     @FXML
     private void showPlacesInHall(){
-        showWindowWithPlaces();
-        if(String.valueOf(filmComboBox.getValue()) != "" &&  String.valueOf(choseDate.getValue()) != "" && String.valueOf(choseHour.getValue()) != "") {
-            Main.bridge = "getDates," + String.valueOf(filmComboBox.getValue()) + "," + String.valueOf(choseDate.getValue()) + "," + String.valueOf(choseHour.getValue());
+        if(String.valueOf(filmComboBox.getValue()) != "" ||  String.valueOf(choseDate.getValue()) != "" || String.valueOf(choseHour.getValue()) != "") {
+            //change from YYYY-MM-DD to YYYYMMDD
+            String date = String.valueOf(choseDate.getValue());
+            String dateTemp = date.substring(0,4)+date.substring(5,7)+date.substring(8,10);
+            //change from HH:MM to HHMM
+            String hour = String.valueOf(choseHour.getValue());
+            String hourTemp = hour.substring(0,2)+hour.substring(3,5);
+
+            Main.bridge = "showReservedPlaces," + String.valueOf(filmComboBox.getValue()) + "," + dateTemp + "," + hourTemp;
             String reservedPlaces = "";
 
             while (true) {
@@ -138,21 +154,28 @@ public class ReserveTicketController {
                 }
 
                 if (!Main.solution.equals("")) {
-                    if (Main.solution.equals("getPlaces")) {
-                        reservedPlaces = Main.solution;
-                    }
+                    reservedPlaces = Main.solution;
                     break;
                 }
             }
             Main.solution = "";
 
-            String[] temp = reservedPlaces.split(",");
+
+            System.out.println(reservedPlaces);
+
+
+            tempPlaces = reservedPlaces.split(",");
+
+            showWindowWithPlaces(); // wyswietla okno
 
         }else {
             failLabel.setText("You have to choose title, date and hour");
         }
-
     }
+
+//    public ReserveTicketController setTempPlaces(){
+//        return this;
+//    }
 
     @FXML
     private void isDatesCBClicked(MouseEvent e){
@@ -165,10 +188,12 @@ public class ReserveTicketController {
     }
 
     private void checkHours() {
-        if(String.valueOf(filmComboBox.getValue()) != "" && String.valueOf(choseDate.getValue()) != "") {
+        if(String.valueOf(filmComboBox.getValue()) != "" || String.valueOf(choseDate.getValue()) != "") {
+            choseHour.getItems().clear();
+            //change from YYYY-MM-DD to YYYYMMDD
             String date = String.valueOf(choseDate.getValue());
             String dateTemp = date.substring(0,4)+date.substring(5,7)+date.substring(8,10);
-            Main.bridge = "getDates," + String.valueOf(filmComboBox.getValue()) + dateTemp;
+            Main.bridge = "getHours," + String.valueOf(filmComboBox.getValue()) + "," + dateTemp;
             String allHours = "";
             while (true) {
                 try {
@@ -176,7 +201,7 @@ public class ReserveTicketController {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
+                System.out.println("sol:" + Main.solution);
                 if (!Main.solution.equals("")) {
                     allHours = Main.solution;
                     break;
@@ -186,13 +211,17 @@ public class ReserveTicketController {
 
             ArrayList<String> hours = new ArrayList<>();
             String[] temp = allHours.split(",");
+            for(int i = 0; i < temp.length; i++){
+                temp[i] = temp[i].substring(0,2)+":"+temp[i].substring(2,4);
+            }
             hours.addAll(Arrays.asList(temp));
-            choseDate.getItems().addAll(hours);
+            choseHour.getItems().addAll(hours);
         }
     }
 
     private void checkDates() {
         if(String.valueOf(filmComboBox.getValue()) != ""){
+            choseDate.getItems().clear();
             Main.bridge = "getDates," + String.valueOf(filmComboBox.getValue());
             String allDates = "";
 
@@ -208,6 +237,7 @@ public class ReserveTicketController {
                     break;
                 }
             }
+
             Main.solution = "";
             ArrayList<String> dates = new ArrayList<>();
             String[] temp = allDates.split(",");
@@ -242,6 +272,8 @@ public class ReserveTicketController {
             e.printStackTrace();
         }
 
+        PlacesInHallController placesInHallController = loader.getController();
+        placesInHallController.setReserveTicketController(this);
         stage.setTitle("Places");
         stage.setScene(new Scene(pane));
         stage.setResizable(false);

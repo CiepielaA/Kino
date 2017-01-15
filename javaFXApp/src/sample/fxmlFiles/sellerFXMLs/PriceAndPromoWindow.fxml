@@ -33,22 +33,22 @@
                         <VBox alignment="CENTER" prefHeight="29.0" prefWidth="255.0">
                            <children>
                               <Label alignment="CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="252.0" text="Type of prices:" />
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="type1" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="type2" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="type3" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="type4" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
@@ -88,22 +88,22 @@
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="254.0">
                            <children>
                               <Label alignment="CENTER" prefHeight="17.0" prefWidth="261.0" text="Costs:" />
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="price1" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="price2" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="price3" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="CENTER" minHeight="25.0" minWidth="150.0">
+                              <Label fx:id="price4" alignment="CENTER" minHeight="25.0" minWidth="150.0">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
