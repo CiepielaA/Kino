@@ -1,6 +1,7 @@
 /**
  * Created by miczi on 03.01.2017.
  */
+@SuppressWarnings("Duplicates")
 public class FunctionalClass {
 
     private CinemaDatabaseAPI cinemaDatabaseAPI;
@@ -19,6 +20,55 @@ public class FunctionalClass {
 
     public boolean access = true;
 
+//********************************************************************************************
+
+
+//********************************************************************************************
+
+    public synchronized String showPrices(){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        String prices = cinemaDatabaseAPI.showPrices();
+
+        access = true;
+        notifyAll();
+        if(prices.equals("blad"))
+            return "blad";
+        else return prices;
+    }
+
+//********************************************************************************************
+
+    public synchronized String addClient(String command){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        System.out.println(command);
+        String[] temp = command.substring(1, command.length()).split(",");
+        String firstName = temp[0];
+        String lastname = temp[1];
+        cinemaDatabaseAPI.addClient(firstName,lastname);
+
+
+        access = true;
+        notifyAll();
+        return "Client added";
+    }
+
+//********************************************************************************************
 
     public synchronized String checkEmployee(String command){
 
@@ -161,16 +211,20 @@ public class FunctionalClass {
         access = false;
 
         String[] temp = arguments.substring(1, arguments.length()).split(",");
+        for(int i = 0; i < temp.length - 1; i++){
+            System.out.println(temp[i]);
+        }
         String filmTitle = temp[0];
         String dateFilm = temp[1];
         String hours = temp[2];
-        int rowNumber = Integer.parseInt(temp[3]);
-        int placeNumber = Integer.parseInt(temp[4]);
-        int isPaid = Integer.parseInt(temp[5]);
-        String priceType = "normalny";
+        String priceType = temp[3];
+        int rowNumber = Integer.parseInt(temp[4]);
+        int placeNumber = Integer.parseInt(temp[5]);
+        int isPaid = Integer.parseInt(temp[6]);
+        //String priceType = "normalny";
 
-        if(temp.length == 8) {
-            Integer clientID = Integer.parseInt(temp[7]);
+        if(temp.length == 9) {
+            Integer clientID = Integer.parseInt(temp[8]);
             cinemaDatabaseAPI.addPurchase(filmTitle, dateFilm, hours, rowNumber, placeNumber, isPaid, priceType, clientID);
         }
         else{

@@ -1,4 +1,5 @@
 import oracle.jdbc.OracleTypes;
+import oracle.jdbc.proxy.annotation.Pre;
 
 import java.sql.*;
 
@@ -8,7 +9,7 @@ import java.sql.*;
 public class CinemaDatabaseAPI {
 
     public static final String DRIVER = "oracle.jdbc.driver.OracleDriver"; //oracle.jdbc.OracleDriver
-    public static final String DB_URL = "jdbc:oracle:thin:@192.168.0.103:1521:orcl";
+    public static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:orcl";
 
     private Connection conn;
     private Statement stat;
@@ -72,7 +73,6 @@ public class CinemaDatabaseAPI {
             e.printStackTrace();
         }
         return "";
-
     }
 
   public void addPurchase(String filmTitle, String dataFilm, String hoursFilm, int rowNumber, int placeNumber, int isPaid, String ticketType, Integer clientID) {
@@ -186,7 +186,36 @@ public class CinemaDatabaseAPI {
         return "";
     }
 
+    public void addClient(String firstname, String lastname){
+        try{
+
+            PreparedStatement preparedStatement = conn.prepareStatement("{CALL addClient(?,?)}");
+            preparedStatement.setString(1, firstname);
+            preparedStatement.setString(2, lastname);
+            preparedStatement.execute();
+
+        } catch (SQLException e){
+            System.err.println("addClient Error!");
+            e.printStackTrace();
+        }
+    }
 
 
+    public String showPrices(){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT * from PRICE");
+            ResultSet resultSet = preparedStatement.executeQuery();
 
+            String prices = "";
+
+            while(resultSet.next()){
+                prices += resultSet.getString(1)+","+String.valueOf(resultSet.getInt(2))+",";
+            }
+            return prices;
+        }catch (SQLException e){
+            System.out.println("showPrices Error!");
+            e.printStackTrace();
+        }
+        return "";
+    }
 }
