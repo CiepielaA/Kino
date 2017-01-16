@@ -16,6 +16,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import sample.Mail;
 import sample.Main;
 import sample.controllers.mainControllers.LoadPane;
 import sample.exitPackage.ExitController;
@@ -112,6 +113,8 @@ public class ReserveTicketController {
                 if (!Main.solution.equals("")) {
 
                         System.out.println("reserveAdded");
+                    Mail mail = new Mail();
+                    mail.sendMail(email,title, hour, date);
                         filmComboBox.getItems().clear();
                         choseDate.getItems().clear();
                         choseHour.getItems().clear();
