@@ -51,9 +51,10 @@
                   </Label>
                   <Button mnemonicParsing="false" onAction="#showTimetable" text="Show timetable">
                      <VBox.margin>
-                        <Insets bottom="200.0" top="15.0" />
+                        <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Button>
+                  <Label fx:id="resultLabel" alignment="TOP_CENTER" prefHeight="252.0" prefWidth="463.0" textAlignment="CENTER" />
                </children>
                <effect>
                   <ColorAdjust />

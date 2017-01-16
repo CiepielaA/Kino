@@ -6,6 +6,10 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import sample.Main;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 /**
  * Created by miczi on 17.11.16.
  */
@@ -26,7 +30,10 @@ public class HireController {
     @FXML
     private TextField salary;
     @FXML
+    private TextField branchName;
+    @FXML
     private Label failLabel;
+
 
 
     @FXML
@@ -34,13 +41,26 @@ public class HireController {
         failLabel.textProperty().unbind();
         if(dataValidation()) {
 
-            Main.bridge = "addDoctor";
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            LocalDate start = LocalDate.now();
+            String startDate = formatter.format(start);
+            startDate = startDate.substring(0,4) + startDate.substring(5,7) +startDate.substring(8,10);
+
+                    Main.bridge = "addEmployee," +
+                            idNumber.getText()+","+
+                            branchName.getText()+","+
+                            firstName.getText()+","+
+                            lastname.getText()+","+
+                            position.getText()+","+
+                            emailAddress.getText()+","+
+                            employeeAddress.getText()+","+
+                            salary.getText()+","+
+                            startDate;
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
 
 
             while (true) {
@@ -51,8 +71,7 @@ public class HireController {
                 }
 
                 if (!Main.solution.equals("")) {
-                    if (Main.solution.equals("doctor added")) {
-                        System.out.println("doctor added--------");
+                    if (Main.solution.equals("Employee added")) {
                         firstName.clear();
                         lastname.clear();
                         emailAddress.clear();
@@ -60,16 +79,15 @@ public class HireController {
                         employeeAddress.clear();
                         position.clear();
                         salary.clear();
+                        branchName.clear();
                         failLabel.setText("Adding complete.");
 
-                    } else if (Main.solution.equals("doctor doesn't added"))
-                        System.out.println("doctor doesn't added---------");
+                    } else {
+                        failLabel.setText("Added error");
+                    }
                     break;
                 }
-                failLabel.setText("Adding in progress..."); // nie wyswietla
-
             }
-
             Main.solution = "";
         }
     }

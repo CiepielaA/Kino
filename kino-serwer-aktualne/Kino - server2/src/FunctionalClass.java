@@ -19,6 +19,244 @@ public class FunctionalClass {
     }
 
     public boolean access = true;
+
+
+//********************************************************************************************
+
+    public synchronized String showRepertoireInHall(String arguments){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        String[] temp = arguments.substring(1, arguments.length()).split(",");
+        String date = temp[0];
+        String numOfHall = temp[1];
+
+
+        String result = cinemaDatabaseAPI.showRepertoireInHall(date, numOfHall);
+
+        access = true;
+        notifyAll();
+        if(result.equals("blad")) return "Error";
+        else return result;
+    }
+
+
+    public synchronized String removeFilmFromRepertoire(String arguments){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        String temp = arguments.substring(1, arguments.length());
+        String title = temp;
+
+
+        String result = cinemaDatabaseAPI.removeFilmFromRepertoire(title);
+
+        access = true;
+        notifyAll();
+        if(result.equals("Movie deleted")) return "Movie deleted";
+        else return "Movie didn't deleted";
+    }
+
+
+
+    public synchronized String addMovie(String arguments){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        String[] temp = arguments.substring(1, arguments.length()).split(",");
+        String title = temp[0];
+        int duration = Integer.parseInt(temp[1]);
+        int yearOfProduction = Integer.parseInt(temp[2]);
+        String director = temp[3];
+        String typeOfmovie = temp[4];
+        int ageLimit = Integer.parseInt(temp[5]);
+        int isPlay = Integer.parseInt(temp[6]);
+
+        cinemaDatabaseAPI.addMovie(title, duration, yearOfProduction, director, typeOfmovie, ageLimit, isPlay );
+
+        access = true;
+        notifyAll();
+        return "Movie added";
+    }
+
+//********************************************************************************************
+
+    public synchronized String updatePriceCost(String arguments){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        String []temp = arguments.substring(1, arguments.length()).split(",");
+        String type = temp[0];
+        int newCost = Integer.parseInt(temp[1]);
+
+        cinemaDatabaseAPI.updatePriceCost(type, newCost);
+
+        access = true;
+        notifyAll();
+
+        return "Price updated";
+
+
+    }
+
+//********************************************************************************************
+
+    public synchronized String showTypesOfPrice(){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+        String result = cinemaDatabaseAPI.showTypesOfPrice();
+
+        access = true;
+        notifyAll();
+        return result;
+    }
+
+//********************************************************************************************
+
+    public synchronized String viewership(String arguments){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        String temp = arguments.substring(1, arguments.length());
+        String audience = temp;
+
+        String result = cinemaDatabaseAPI.viewership(audience);
+
+        access = true;
+        notifyAll();
+        if(result.equals("")){
+            return "blad";
+        }else{
+            return result;
+        }
+
+    }
+
+ //********************************************************************************************
+
+    public synchronized String addSeance(String arguments){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        System.out.println(arguments);
+        String[] temp = arguments.substring(1, arguments.length()).split(",");
+        String title = temp[0];
+        int hallId = Integer.parseInt(temp[1]);
+        String dataSeance = temp[2];
+        String hours = temp[3];
+
+        cinemaDatabaseAPI.addSeance(title, hallId, dataSeance, hours);
+
+        access = true;
+        notifyAll();
+        return "Seance added";
+    }
+
+
+ //********************************************************************************************
+
+    public synchronized String removeEmployee(String argments){
+
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        argments = argments.substring(1, argments.length());
+        String[] temp = argments.split(",");
+
+        String firstName = temp[0];
+        String lastName = temp[1];
+        String position = temp[2];
+
+        cinemaDatabaseAPI.removeEmployee(firstName, lastName, position);
+
+
+        access = true;
+        notifyAll();
+        return "Employee removed!";
+
+    }
+
+
+ //********************************************************************************************
+
+    public synchronized String addEmployee(String arguments){
+        while(!access)
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        access = false;
+
+        System.out.println(arguments);
+        String[] temp = arguments.substring(1, arguments.length()).split(",");
+        long pesel = Long.parseLong(temp[0]);
+        String branchName = temp[1];
+        String firstname = temp[2];
+        String secondName = temp[3];
+        String position = temp[4];
+        String email = temp[5];
+        String address = temp[6];
+        int salary = Integer.parseInt(temp[7]);
+        String start_date = temp[8];
+        cinemaDatabaseAPI.addEmployee(pesel, branchName,firstname, secondName, position, email, address, salary, start_date);
+
+
+        access = true;
+        notifyAll();
+        return "Employee added";
+    }
+
+
 //********************************************************************************************
     public synchronized String deletePurchase(String purId){
 
@@ -33,6 +271,7 @@ public class FunctionalClass {
         String result;
         purId = purId.substring(1, purId.length());
         if(cinemaDatabaseAPI.checkISPAID(purId).equals("0")){
+           result = "Reservation cancelled";
            result = "Reservation cancelled";
            cinemaDatabaseAPI.removePurchase(purId);
         } else {
@@ -183,8 +422,6 @@ public class FunctionalClass {
 
     public synchronized String checkEmployee(String command){
 
-        String temp = "";
-
         while(!access)
             try {
                 wait();
@@ -193,14 +430,18 @@ public class FunctionalClass {
             }
 
         access = false;
-        if(command.equals("checkEmp"))
-            temp = "Emp checked";
-        else temp = "Can't check emp";
+
+        System.out.println(command);
+
+        String lastname = command.substring(1, command.length());
+        String result = cinemaDatabaseAPI.checkEmployee(lastname);
 
         access = true;
         notifyAll();
-        return temp;
+        return result;
     }
+
+//********************************************************************************************
 
     public synchronized String addFilmToRep(String command) {
         String temp = "";

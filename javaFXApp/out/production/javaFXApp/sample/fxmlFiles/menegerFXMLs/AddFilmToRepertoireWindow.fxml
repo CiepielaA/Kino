@@ -48,7 +48,7 @@
                         <Insets bottom="13.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Date:">
+                  <Label text="Date (YYYY-MM-DD):">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -58,7 +58,7 @@
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Hour:">
+                  <Label text="Hour(HH-MM):">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

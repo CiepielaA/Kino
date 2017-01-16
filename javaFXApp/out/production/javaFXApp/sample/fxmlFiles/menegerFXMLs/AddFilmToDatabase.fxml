@@ -47,6 +47,12 @@
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </TextField>
+                  <Label text="Director:" />
+                  <TextField fx:id="directorLabel" maxWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
                   <Label text="Year of production (YYYY:MM:DD):">
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -84,7 +90,7 @@
                   </Label>
                   <Button mnemonicParsing="false" onAction="#addFilm" text="Add">
                      <VBox.margin>
-                        <Insets top="15.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
                </children>

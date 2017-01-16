@@ -42,7 +42,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="numberOfViwers" minWidth="30.0">
+                  <Label fx:id="numberOfViwers" alignment="CENTER" minWidth="30.0" prefHeight="17.0" prefWidth="63.0">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>

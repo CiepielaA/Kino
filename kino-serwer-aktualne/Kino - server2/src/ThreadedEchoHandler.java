@@ -57,6 +57,26 @@ public class ThreadedEchoHandler implements Runnable{
 
     private String choseFunction(String funName, String funArguments, FunctionalClass functions){
         switch(funName){
+            case "showRepertoireInHall":
+                return functions.showRepertoireInHall(funArguments);
+            case "removeFilmFromRepertoire":
+                return functions.removeFilmFromRepertoire(funArguments);
+            case "addMovie":
+                return functions.addMovie(funArguments);
+            case "updatePriceCost":
+                return functions.updatePriceCost(funArguments);
+            case "showTypesOfPrice":
+                return functions.showTypesOfPrice();
+            case "viewership":
+                return functions.viewership(funArguments);
+            case "addSeance":
+                return functions.addSeance(funArguments);
+            case "checkEmployee":
+                return functions.checkEmployee(funArguments);
+            case "removeEmployee":
+                return functions.removeEmployee(funArguments);
+            case "addEmployee":
+                return functions.addEmployee(funArguments);
             case "deletePurchase":
                 return functions.deletePurchase(funArguments);
             case "showRepertoire":

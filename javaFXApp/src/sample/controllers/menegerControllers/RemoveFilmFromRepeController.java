@@ -8,6 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import sample.Main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by miczi on 17.11.16.
  */
@@ -21,21 +24,43 @@ public class RemoveFilmFromRepeController {
     private Label failLabel;
 
 
+    public void initialize() {
+
+        String allFilms;
+        Main.bridge = "getFilms";
+
+        while (true) {
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (!Main.solution.equals("")) {
+                allFilms = Main.solution;
+                break;
+            }
+        }
+        Main.solution = "";
+
+        ArrayList<String> movies = new ArrayList<>();
+        String[] temp = allFilms.split(",");
+        movies.addAll(Arrays.asList(temp));
+        nameOfFilmComboBox.getItems().addAll(movies);
+    }
+
     @FXML
     private void removeFilmButton(){
 
-        if(checkBox.isSelected() == true && String.valueOf(nameOfFilmComboBox.getValue()) != ""){
+        if(checkBox.isSelected() == true && !String.valueOf(nameOfFilmComboBox.getValue()).equals("")){
 
-
-            Main.bridge = "removeFilmFromRep";
+            Main.bridge = "removeFilmFromRepertoire," + String.valueOf(nameOfFilmComboBox.getValue());
 
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            failLabel.setText("Removed in progress"); // nie wyswietla
 
             while (true) {
                 try {
@@ -45,11 +70,12 @@ public class RemoveFilmFromRepeController {
                 }
 
                 if (!Main.solution.equals("")) {
-                    if (Main.solution.equals("Film removed")) {
-                        System.out.println("Film removed--------");
+                    if (Main.solution.equals("Movie deleted")) {
+                        failLabel.setText("Movie deleted");
                         checkBox.setSelected(false);
-                    } else if (Main.solution.equals("Can't remove film from repertoire"))
-                        System.out.println("Can't remove film from repertoire---------");
+                        nameOfFilmComboBox.getItems().clear();
+                    } else
+                        failLabel.setText("Movie didn't deleted");
                     break;
                 }
             }

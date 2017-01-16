@@ -51,6 +51,221 @@ public class CinemaDatabaseAPI {
         }
     }
 
+    @SuppressWarnings("Duplicates")
+    public String showRepertoireInHall(String date, String numOfHall){
+        try {
+            CallableStatement callableStatement = conn.prepareCall("{call WRITEMOVIEINHALL(?,?,?)}");
+            callableStatement.setInt(1, Integer.parseInt(numOfHall));
+            callableStatement.setString(2, date);
+            callableStatement.registerOutParameter(3, OracleTypes.CURSOR);
+            callableStatement.execute();
+
+            Map<String, String> map = new HashMap<>();
+            ResultSet resultSet = null;
+            resultSet = (ResultSet)callableStatement.getObject(3);
+
+
+
+            String result = "";
+
+            while(resultSet.next()){
+               result += resultSet.getString("title")+","+resultSet.getString("hours") + ";";
+            }
+
+            String [] tab = result.split(";");
+            String [] tempHours;
+            String resultFromMap = "";
+
+            for(int i = 0; i < tab.length; i++ ){
+                tempHours = tab[i].split(",");
+                if(map.containsKey(tempHours[0])){
+                    resultFromMap += map.get(tempHours[0]) + ", " +  tempHours[1].substring(0,2)+":"+tempHours[1].substring(2,4);
+                    map.put(tempHours[0], resultFromMap);
+                }
+                else{
+                    map.put(tempHours[0], tempHours[1].substring(0,2)+":"+tempHours[1].substring(2,4));
+                    resultFromMap = "";
+                }
+            }
+            result = "";
+            for(String title : map.keySet()){
+                result += title + ":  " + map.get(title) + ";";
+            }
+
+            return result;
+        } catch (SQLException e) {
+            System.err.println("showReservedPlaces Error!");
+            e.printStackTrace();
+        }
+        return "blad";
+    }
+
+
+    public String removeFilmFromRepertoire(String title){
+        int r=0;
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("UPDATE MOVIE SET PLAY = 0 WHERE TITLE =\'" + title + "\'");
+            preparedStatement.execute();
+
+        }catch (SQLException e){
+            System.out.println("updatePriceCost Error!");
+            e.printStackTrace();
+        }
+
+            return "Movie deleted";
+
+    }
+
+
+    public String updatePriceCost(String type, int newCost){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("{call UPDATEPRICE(?,?)}");
+            preparedStatement.setString(1, type);
+            preparedStatement.setInt(2, newCost);
+            preparedStatement.execute();
+
+        }catch (SQLException e){
+            System.out.println("updatePriceCost Error!");
+            e.printStackTrace();
+        }
+        return "Price updated";
+    }
+
+
+    public void addMovie(String title, int duration, int yearOfProduction, String director, String typeOfMovie, int ageLimit, int isPlay){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("{CALL addMovie(?,?,?,?,?,?,?)}");
+            preparedStatement.setString(1, title);
+            preparedStatement.setInt(2, duration);
+            preparedStatement.setInt(3, yearOfProduction);
+            preparedStatement.setString(4, director);
+            preparedStatement.setString(5, typeOfMovie);
+            preparedStatement.setInt(6, ageLimit);
+            preparedStatement.setInt(7, isPlay);
+            preparedStatement.execute();
+
+        } catch (SQLException e){
+            System.err.println("addMovie Error!");
+            e.printStackTrace();
+        }
+    }
+
+
+    public String showTypesOfPrice(){
+
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT type_p from PRICE");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            String prices = "";
+
+            while(resultSet.next()){
+                prices+=resultSet.getString("type_p") + ",";
+            }
+
+            return prices;
+
+        }catch (SQLException e){
+            System.out.println("showTypesOfPrice Error!");
+            e.printStackTrace();
+        }
+        return "blad";
+    }
+
+
+    public String viewership(String title){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT count(*) from Purchase join SEANCE on PUrchase.seance_id = SEANCE.seance_id where title =\'"+title+ "\'and PURCHASE.is_paid = 1");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            int audiece = resultSet.getInt(1);
+
+            return String.valueOf(audiece);
+
+        }catch (SQLException e){
+            System.out.println("viewership Error!");
+            e.printStackTrace();
+        }
+        return "blad";
+    }
+
+
+    public void addSeance(String title, int hallId, String dataSeance, String hours){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("{CALL addSeance(?,?,?,?)}");
+            preparedStatement.setString(1, title);
+            preparedStatement.setInt(2, hallId);
+            preparedStatement.setString(3, dataSeance);
+            preparedStatement.setString(4, hours);
+
+            preparedStatement.execute();
+
+        } catch (SQLException e){
+            System.err.println("addSeance Error!");
+            e.printStackTrace();
+        }
+    }
+
+    public String checkEmployee(String lastname){
+        try{
+            System.out.println(lastname);
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT * from EMPLOYEE WHERE EMPLOYEE.SECOND_NAME=\'"+lastname+"\'");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            Long pesel = resultSet.getLong(1);
+            String branchName = resultSet.getString(2);
+            String firstname = resultSet.getString(3);
+            String secondName = resultSet.getString(4);
+            String position = resultSet.getString(5);
+            String email = resultSet.getString(6);
+            String address = resultSet.getString(7);
+            int salary = resultSet.getInt(8);
+            String start_date = resultSet.getString(9);
+
+            return String.valueOf(pesel)+","+branchName+","+firstname+","+secondName+","+position+","+email+","+address+","+String.valueOf(salary)+","+start_date;
+
+        }catch (SQLException e){
+            System.out.println("checkEmployee Error!");
+            e.printStackTrace();
+        }
+        return "blad";
+    }
+
+    public void removeEmployee(String firstName, String lastName, String position){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("{call removeEmployee(?,?,?)}");
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, position);
+            preparedStatement.execute();
+
+        }catch (SQLException e){
+            System.out.println("removeEmployee Error!");
+            e.printStackTrace();
+        }
+    }
+
+    public void addEmployee(long pesel, String branchName, String firstName, String secondName, String position, String email, String address, int salary, String startDate){
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("{CALL addEmployee(?,?,?,?,?,?,?,?,?)}");
+            preparedStatement.setLong(1, pesel);
+            preparedStatement.setString(2, branchName);
+            preparedStatement.setString(3, firstName);
+            preparedStatement.setString(4, secondName);
+            preparedStatement.setString(5, position);
+            preparedStatement.setString(6, email);
+            preparedStatement.setString(7, address);
+            preparedStatement.setInt(8, salary);
+            preparedStatement.setString(9, startDate);
+            preparedStatement.execute();
+
+        } catch (SQLException e){
+            System.err.println("addEmployee Error!");
+            e.printStackTrace();
+        }
+    }
+
     public String showReservedPlaces(String movieTitle, String date, String hours){
         try {
             CallableStatement callableStatement = conn.prepareCall("{call SHOWRESERVEDPLACES(?,?,?,?)}");

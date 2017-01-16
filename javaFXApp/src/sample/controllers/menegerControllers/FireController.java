@@ -27,18 +27,17 @@ public class FireController {
     @FXML
     private void failEmployee(){
 
-        System.out.println();
-
         if(dataValidation() && fireCheckBox.isSelected() == true) {
-            Main.bridge = "removeDoctor";
+            Main.bridge = "removeEmployee,"+
+                            firstName.getText()+","+
+                            lastname.getText()+","+
+                            position.getText();
 
             try {
-                Thread.sleep(10);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            failLabel.setText("Adding in progress..."); // nie wyswietla
 
             while (true) {
                 try {
@@ -48,16 +47,15 @@ public class FireController {
                 }
 
                 if (!Main.solution.equals("")) {
-                    if (Main.solution.equals("doctor removed")) {
-                        System.out.println("doctor removed--------");
+                    if (Main.solution.equals("Employee removed!")) {
                         firstName.clear();
                         lastname.clear();
                         position.clear();
                         fireCheckBox.setSelected(false);
                         failLabel.setText("Fired.");
 
-                    } else if (Main.solution.equals("doctor doesn't removed"))
-                        System.out.println("doctor doesn't removed---------");
+                    } else
+                        System.out.println("Removed error");
                     break;
                 }
             }
@@ -73,7 +71,6 @@ public class FireController {
         if(firstName.getText().length() != 0 &&
                 lastname.getText().length() != 0 &&
                 position.getText().length() != 0){
-            failLabel.setText("all fill.");
             return true;
         } else {
             failLabel.setText("You have to fill all fields.");
